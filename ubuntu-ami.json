@@ -7,7 +7,7 @@
         "source_ami": "ami-07ebfd5b3428b6f4d",
         "ssh_username": "ubuntu",
         "ami_users": ""
-        
+
     },
     "builders": [
         {
@@ -39,7 +39,11 @@
                 "FOO=foo"
             ],
             "inline": [
-                "sudo apt-get update"
+                "sudo apt-get update",
+                "sudo apt-get -y install default-jdk",
+                "sudo apt-get -y install tomcat8",
+                "sudo apt-get install -y tomcat8-docs tomcat8-examples tomcat8-admin",
+                "sudo apt-get -y install mysql-server"
             ]
         }
     ]
