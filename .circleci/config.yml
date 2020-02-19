@@ -19,15 +19,18 @@ jobs:
             unzip packer*.zip
             chmod +x packer
       - run:
+          name: print var
+          command: echo $source_ami
+      - run:
           name: Validate Packer Template
           command: ./packer validate ubuntu-ami.json
       - run:
           name: Build AMI
           command: |
             ./packer build \
-            -var "aws_access_key=$aws_access_key" \
-            -var "aws_secret_key=$aws_secret_key" \
-            -var "aws_region=$aws_region" \
-            -var "source_ami=$source_ami" \
-            -var "subnet_id=$subnet_id" \
+            -var "aws_access_key=${aws_access_key}" \
+            -var "aws_secret_key=${aws_secret_key}" \
+            -var "aws_region=${aws_region}" \
+            -var "source_ami=${source_ami}" \
+            -var "subnet_id=${subnet_id}" \
             ubuntu-ami.json
