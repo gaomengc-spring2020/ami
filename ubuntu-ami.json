@@ -9,6 +9,7 @@
         "ami_users": ""
 
     },
+    
     "builders": [
         {
             "type": "amazon-ebs",
