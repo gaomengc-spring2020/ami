@@ -45,12 +45,14 @@
                 "sudo apt-get -y install tomcat8",
                 "sudo apt-get install -y tomcat8-docs tomcat8-examples tomcat8-admin",
                 "sudo apt-get install -y ruby",
+                "sudo apt-get install -y awscli",
                 "sudo apt-get install -y wget",
                 "cd /home/ubuntu",
-                "wget https://codedeploy.mengchen-gao.me.s3.us-east-1.amazonaws.com/latest/install",
+                "aws s3 cp s3://aws-codedeploy-us-east-1/latest/install . --region us-east-1",
                 "chmod +x ./install",
-                "sudo ./install auto"
+                "sudo ./install auto",
+                "sudo service codedeploy-agent status"
             ]
         }
-    ]
+    ] 
 }
